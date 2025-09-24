@@ -6,6 +6,18 @@ import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { Spinner } from '../components/ui/Spinner';
 
+const calculateAge = (dobString: string) => {
+  if (!dobString) return '';
+  const dob = new Date(dobString);
+  const today = new Date();
+  let age = today.getFullYear() - dob.getFullYear();
+  const m = today.getMonth() - dob.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+    age--;
+  }
+  return age;
+};
+
 const PatientProfilePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { getPatientById, deletePatient } = usePatientContext();
@@ -66,6 +78,7 @@ const PatientProfilePage: React.FC = () => {
       <div className="flex justify-between items-start">
         <div>
             <h1 className="text-3xl font-bold mb-2">{patient.name}</h1>
+            <p className="text-gray-600"><strong>Age:</strong> {calculateAge(patient.dob)} years old</p>
             <p className="text-gray-600"><strong>DOB:</strong> {patient.dob}</p>
             <p className="text-gray-600"><strong>Gender:</strong> {patient.gender}</p>
             <p className="text-gray-600"><strong>Contact:</strong> {patient.contact}</p>
@@ -81,7 +94,7 @@ const PatientProfilePage: React.FC = () => {
 
       <div className="mt-6 border-t pt-4">
         <h2 className="text-xl font-semibold">Medical History</h2>
-        <p className="text-gray-700 mt-2 whitespace-pre-wrap">{patient.medicalHistory}</p>
+        <p className="text-gray-700 mt-2 whitespace-pre-wrap">{patient.medicalHistory || 'No medical history recorded.'}</p>
       </div>
     </Card>
   );

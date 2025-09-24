@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import { PatientProvider } from './context/PatientContext';
 import Header from './components/Header';
 import DashboardPage from './pages/DashboardPage';
@@ -12,6 +13,7 @@ const App: React.FC = () => {
   return (
     <PatientProvider>
       <Router>
+        <Toaster position="top-center" reverseOrder={false} />
         <div className="bg-gray-100 min-h-screen">
           <Header />
           <main className="container mx-auto p-4">

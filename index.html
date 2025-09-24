@@ -1,11 +1,40 @@
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.1.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-    "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.2"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GiveCare - Offline Patient Registry</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0D47A1">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0D47A1', // A deep, professional blue
+            'primary-dark': '#002171',
+            secondary: '#1B5E20', // A calming, trustworthy green
+          },
+        },
+      },
+    }
+  </script>
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://aistudiocdn.com/react@^19.1.1",
+      "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+      "react/": "https://aistudiocdn.com/react@^19.1.1/",
+      "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.2",
+      "idb": "https://aistudiocdn.com/idb@^8.0.0",
+      "react-hot-toast": "https://aistudiocdn.com/react-hot-toast@^2.4.2"
+    }
   }
-}
-</script>
-full contents of index.html
+  </script>
+</head>
+<body class="bg-gray-100">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

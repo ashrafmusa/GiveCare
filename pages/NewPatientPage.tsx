@@ -7,7 +7,7 @@ import { Input } from '../components/ui/Input';
 import { Button } from '../components/ui/Button';
 
 const NewPatientPage: React.FC = () => {
-  const [patient, setPatient] = useState<Omit<Patient, 'id'>>({
+  const [patient, setPatient] = useState<Omit<Patient, 'id' | 'syncStatus' | 'lastModified'>>({
     name: '',
     dob: '',
     gender: 'Male',

@@ -68,6 +68,16 @@ export const getAllPatients = (): Promise<Patient[]> => {
   });
 };
 
+export const getPendingPatients = (): Promise<Patient[]> => {
+  return new Promise((resolve, reject) => {
+    getAllPatients().then(allPatients => {
+      const pending = allPatients.filter(p => p.syncStatus === 'pending');
+      resolve(pending);
+    }).catch(reject);
+  });
+};
+
+
 export const getPatientById = (id: number): Promise<Patient | undefined> => {
   return new Promise((resolve, reject) => {
     const transaction = db.transaction([STORE_NAME], 'readonly');

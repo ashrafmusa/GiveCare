@@ -4,6 +4,18 @@ import { usePatientContext } from '../context/PatientContext';
 import { Card } from '../components/ui/Card';
 import { Spinner } from '../components/ui/Spinner';
 
+const calculateAge = (dobString: string) => {
+  if (!dobString) return '';
+  const dob = new Date(dobString);
+  const today = new Date();
+  let age = today.getFullYear() - dob.getFullYear();
+  const m = today.getMonth() - dob.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+    age--;
+  }
+  return age;
+};
+
 const DashboardPage: React.FC = () => {
   const { patients, loading } = usePatientContext();
 
@@ -28,9 +40,10 @@ const DashboardPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {patients.map(patient => (
             <Card key={patient.id} className="hover:shadow-lg transition-shadow">
-              <Link to={`/patient/${patient.id}`}>
+              <Link to={`/patient/${patient.id}`} className="block">
                 <h2 className="text-xl font-semibold text-primary">{patient.name}</h2>
-                <p className="text-gray-600">DOB: {patient.dob}</p>
+                <p className="text-gray-600">Age: {calculateAge(patient.dob)}</p>
+                <p className="text-gray-600">Gender: {patient.gender}</p>
                 <p className="text-gray-600">Contact: {patient.contact}</p>
               </Link>
             </Card>

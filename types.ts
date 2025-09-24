@@ -6,4 +6,6 @@ export interface Patient {
   contact: string;
   address: string;
   medicalHistory: string;
+  syncStatus: 'synced' | 'pending';
+  lastModified: string; // ISO 8601 date string
 }
