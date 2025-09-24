@@ -1,0 +1,20 @@
+{
+  "short_name": "Sudan Health",
+  "name": "Sudan Health - Offline Patient Registry",
+  "icons": [
+    {
+      "src": "https://www.gstatic.com/images/branding/product/1x/google_g_co_192dp.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://www.gstatic.com/images/branding/product/1x/google_g_co_512dp.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0D47A1",
+  "background_color": "#f5f5f5"
+}

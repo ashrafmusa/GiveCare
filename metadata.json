@@ -1,0 +1,5 @@
+{
+  "name": "GiveCare - Offline Patient Registry",
+  "description": "An offline-first web application for patient registration and clinical data storage for Sudan. The app works without an internet connection and syncs data when online, helping connect different health institutes and allowing doctors to review patient history.",
+  "requestFramePermissions": []
+}
